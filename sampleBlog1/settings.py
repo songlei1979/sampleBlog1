@@ -16,7 +16,6 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -27,7 +26,7 @@ SECRET_KEY = 'django-insecure-(+2tbdap@8l4gy5^c8dkmavygy2zt4mrle(x-&&whdw4u57jec
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'members',
     'ckeditor',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sampleBlog1.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -83,13 +82,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd8daj6i55dbiie',
-        'USER':'wrvspcunljqcsw',
-        'PASSWORD':'9b3325ef8d5db7b084b37d3be3620ad486db145ed6ea03d3d626eb35f996b329',
-        'HOST':'ec2-52-23-87-65.compute-1.amazonaws.com',
-        'Port':'5432'
+        'USER': 'wrvspcunljqcsw',
+        'PASSWORD': '9b3325ef8d5db7b084b37d3be3620ad486db145ed6ea03d3d626eb35f996b329',
+        'HOST': 'ec2-52-23-87-65.compute-1.amazonaws.com',
+        'Port': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -109,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -123,7 +120,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -135,7 +131,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # Default primary key field type
