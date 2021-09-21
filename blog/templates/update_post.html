@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Update Post{% endblock %}
+{%  block content %}
+<h1>Update Post</h1>
+    {% if user.is_authenticated and user.id == post.author.id %}
+<form method="post" class="form-control">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+  <button>Update</button>
+</form>
+    {% else %}
+    <h1>Hey, you don't have the permission</h1>
+    {% endif %}
+{% endblock %}

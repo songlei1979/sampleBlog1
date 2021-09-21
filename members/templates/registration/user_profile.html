@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+     <div class="card" style="width: 18rem;">
+        {% if profile.photo %}
+            <img class="card-img-top" src="{{ profile.photo.url }}">
+        {% else %}
+            <img class="card-img-top" src="{% static 'blog/images/default.jpeg' %}">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ profile.user.first_name }} {{ profile.user.last_name }}</h5>
+            {% if profile.bio %}
+                <p class="card-text">{{ profile.bio }}</p>
+            {% else %}
+                <p class="card-text">Too lazy</p>
+            {% endif %}
+            {% if profile.website_url %}
+                <p class="card-text"><a href="{{ profile.website_url }}">WebSite</a></p>
+            {% endif %}
+            {% if profile.github_url %}
+                <p class="card-text"><a href="{{ profile.github_url }}">GitHub</a></p>
+            {% endif %}
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Create Profile{% endblock %}
+{%  block content %}
+<h1>Create Profile</h1>
+    {% if user.is_authenticated %}
+<form method="post" class="form-control">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+  <button>Create</button>
+</form>
+    {% else %}
+    <h1>Hey, you don't have the permission</h1>
+    {% endif %}
+{% endblock %}
